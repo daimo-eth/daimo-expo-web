@@ -1,18 +1,14 @@
 module.exports = function (api) {
+  // Configure cache before any other API calls
   api.cache(true);
+
   return {
-    presets: ["babel-preset-expo"],
-    plugins: [],
-    // Ensure node_modules that use `import.meta` are also transformed
-    overrides: [
-      {
-        test: /node_modules\/(lit|@daimo|viem|ox)\//,
-        plugins: [["babel-plugin-transform-import-meta", { module: "ES6" }]],
-      },
-      {
-        // Fallback for app code too
-        plugins: [["babel-plugin-transform-import-meta", { module: "ES6" }]],
-      },
+    presets: [["babel-preset-expo", { unstable_transformImportMeta: true }]],
+    plugins: [
+      // Always apply import.meta transformation
+      ["babel-plugin-transform-import-meta", { module: "ES6" }]
     ],
+    // Don't ignore node_modules - let them be transformed
+    ignore: [],
   };
 };
