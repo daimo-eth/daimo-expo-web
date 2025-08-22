@@ -1,6 +1,25 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
-  }
+    "strict": true,
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "react-native-qrcode-styled": [
+        "node_modules/react-native-qrcode-styled/lib/typescript/module/src/index.d.ts"
+      ]
+    },
+    "baseUrl": "."
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "app/auth/index.stsx"
+  ],
+  "sourceMap": true,
+  "exclude": [
+    "node_modules",
+    "node_modules/**/*"
+  ]
 }
