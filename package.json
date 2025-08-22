@@ -1,11 +1,17 @@
 {
   "name": "daimo-expo-web",
   "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": "^24.0.0"
+  },
   "scripts": {
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "web": "expo start --web",
+    "web": "expo start --web --clear",
+    "web:export": "expo export --platform web --clear",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
@@ -24,7 +30,7 @@
     "@radix-ui/react-dropdown-menu": "^2.1.12",
     "@react-native-async-storage/async-storage": "1.23.1",
     "@react-native-community/netinfo": "11.4.1",
-    "@react-native-google-signin/google-signin": "^20.1.6",
+    "@react-native-google-signin/google-signin": "^15.0.0",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
     "@segment/analytics-react-native": "^2.19.1",
